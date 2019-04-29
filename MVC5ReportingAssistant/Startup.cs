@@ -38,7 +38,7 @@ namespace MVC5ReportingAssistant
                 roleManager.Create(new IdentityRole("Admin"));
             }
 
-            //Adding user George
+            //Adding admin George
             if (userManager.FindByName("George") == null)
             {
                 var user = new ApplicationUser();
@@ -53,7 +53,7 @@ namespace MVC5ReportingAssistant
                 }
             }
 
-            //Adding user John
+            //Adding admin John
             if (userManager.FindByName("John") == null)
             {
                 var user = new ApplicationUser();
@@ -69,7 +69,7 @@ namespace MVC5ReportingAssistant
                 }
             }
 
-            //Adding user Mary
+            //Adding admin Mary
             if (userManager.FindByName("Mary") == null)
             {
                 var user = new ApplicationUser();
@@ -81,6 +81,7 @@ namespace MVC5ReportingAssistant
                 if (checkUser.Succeeded)
                 {
                     userManager.AddToRole(user.Id, "Admin");
+                    userManager.AddToRole(user.Id, "User");
                 }
             }
 
