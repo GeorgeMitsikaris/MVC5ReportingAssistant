@@ -1,0 +1,12 @@
+﻿.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.please-login{
+    color: mediumpurple;
+}
+
+.container{
+    height:600px;
+}

@@ -6,35 +6,101 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/layout.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+    <div class="wrapper">
+
+        <ul class="nav flex-column bg-info">
+            <li class="nav-item">
+                <a class="nav-link active" href="#"><span class="fa fa-home text-white"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="fa fa-search text-white"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="fa fa-exclamation-triangle text-white"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="fa fa-question-circle text-white"></span></a>
+            </li>
+        </ul>
+        <div class="second-nav-bar">
+            <ul class="nav flex-column bg-light">
+                <li class="nav-item">
+                    <h3>Reporting Asst.</h3>
+                </li>
+                <li class="nav-item">
+                    <p class="please-login">Please login</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-user text-info"></span>Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-lock text-info"></span>Login</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
         </div>
     </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+    @*<div class="wrapper">
+            <aside class="main_sidebar">
+                <ul>
+                    <li><i class="fa fa-home"></i><a href="#">arrows</a></li>
+                    <li><i class="fa fa-battery-2"></i><a href="#">battery</a></li>
+                    <li class="active"><i class="fa fa-bell"></i><a href="#">bell</a></li>
+                    <li><i class="fa fa-bicycle"></i><a href="#">bicycle</a></li>
+                    <li><i class="fa fa-circle"></i><a href="#">circle</a></li>
+                    <li><i class="fa fa-crosshairs"></i><a href="#">crosshairs</a></li>
+                    <li><i class="fa fa-deaf"></i><a href="#">deaf</a></li>
+                    <li><i class="fa fa-desktop"></i><a href="#">desktop</a></li>
+                    <li><i class="fa fa-dot-circle-o"></i><a href="#">dot</a></li>
+                    <li><i class="fa fa-folder"></i><a href="#">folder</a></li>
+                </ul>
+            </aside>
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+        </div>
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>*@
 </body>
+@*<body>
+    <div class="navbar navba">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </footer>
+            </div>
+
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+            <script src="~/Scripts/bootstrap.min.js"></script>
+        </body>
+*@
 </html>
