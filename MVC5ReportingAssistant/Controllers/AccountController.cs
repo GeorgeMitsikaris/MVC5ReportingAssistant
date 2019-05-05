@@ -51,11 +51,38 @@ namespace MVC5ReportingAssistant.Controllers
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
                 }
 
-                return RedirectToAction("Index", "Home"); 
+                return RedirectToAction("Index", "Home");
             }
             else
             {
                 ModelState.AddModelError("MyError", "Invalid data");
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            var userStore = new ApplicationUserStore(_db);
+            var userManager = new ApplicationUserManager(userStore);
+            var user = userManager.Find(model.Username, model.Password);
+
+            if (user != null)
+            {
+                var authenticationManager = HttpContext.GetOwinContext().Authentication;
+                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("MyError", "Invalid username and/or password");
                 return View();
             }
         }
