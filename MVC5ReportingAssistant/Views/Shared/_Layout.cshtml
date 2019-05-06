@@ -31,30 +31,87 @@
             </li>
         </ul>
         <div class="second-nav-bar">
-            <ul class="nav flex-column bg-light">
-                <li class="nav-item">
-                    <h3>Reporting Asst.</h3>
-                </li>
-                <li class="nav-item">
-                    @if (User.Identity.IsAuthenticated)
-                    {
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <ul class="nav flex-column bg-light">
+                    <li class="nav-item">
+                        <h3>Reporting Asst.</h3>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-white border-bottom" href="Account/Register"><span class="fa fa-user text-info"></span>Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-white border-bottom" href="Account/Login"><span class="fa fa-lock text-info"></span>Login</a>
+                    </li>
+                </ul>
+            }
+            else if (User.IsInRole("User"))
+            {
+                <ul class="nav flex-column bg-light">
+                    <li class="nav-item">
+                        <h3>Reporting Asst.</h3>
+                    </li>
+                    <li class="nav-item">
                         <p class="please-login">Welcome @User.Identity.Name</p>
-                    }
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link bg-white border-bottom" href="Account/Register"><span class="fa fa-user text-info"></span>Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link bg-white border-bottom" href="Account/Login"><span class="fa fa-lock text-info"></span>Login</a>
-                </li>
-            </ul>
+                        <p class="text-success">User</p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-user text-home"></span>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-exclamation-triangle text-home"></span>My Issues</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-history text-home"></span>Issues History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-user text-home"></span>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-lock text-home"></span>Logout</a>
+                    </li>
+                </ul>
+            }
+            else if (User.IsInRole("Admin"))
+            {
+        <ul class="nav flex-column bg-light">
+            <li class="nav-item">
+                <h3>Reporting Asst.</h3>
+            </li>
+            <li class="nav-item">
+                <p class="please-login">Welcome @User.Identity.Name</p>
+                <p class="text-success">Admin</p>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-user text-home"></span>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-exclamation-triangle text-home"></span>My Issues</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-history text-home"></span>Issues History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-users text-home"></span>Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-user text-home"></span>Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-maxcdn text-home"></span>Masters</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-white border-bottom" href="#"><span class="fa fa-lock text-home"></span>Logout</a>
+            </li>
+        </ul>
+            }
         </div>
         <div class="container body-content">
             @RenderBody()
             <hr />
         </div>
     </div>
-   
+
 </body>
 
 </html>
