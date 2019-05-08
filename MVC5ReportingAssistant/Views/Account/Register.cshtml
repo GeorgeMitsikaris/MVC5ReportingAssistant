@@ -4,14 +4,13 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register</h2>
+<h2 class="text-center mr-5">Register</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>RegisterViewModel</h4>
+    <div class="form-horizontal justify-content-sm-center flex-column d-flex align-content-between align-items-center">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -56,11 +55,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Register" class="btn btn-success" />
+                <input type="submit" value="Register" class="btn btn-success mr-5" />
             </div>
-        </div>
-        <div>
-            @Html.ActionLink("Home", "Index", "Home", new { @class="btn btn-primary ml-3"})
         </div>
     </div>
 }
